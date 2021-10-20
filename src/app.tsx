@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div>
-      <h1>Hello World?</h1>
+      <h1>terra-ui-kit</h1>
       <section>
         <ul>
           <li>color: {color}</li>
@@ -23,6 +23,23 @@ function App() {
             Change color
           </Button>
         </footer>
+        <h1>Buttons</h1>
+        <div style={{
+          display: 'flex',
+          gap: 20,
+          marginBottom: 20
+        }}>
+          <Button>default</Button>
+          <Button variant='primary'>primary</Button>
+          <Button variant='danger'>danger</Button>
+          <Button variant='outline'>outline</Button>
+        </div>
+        <Button fullWidth>fullWidth</Button>
+        <Button size='large'>large</Button>
+        <Button>default size</Button>
+        <Button size='medium'>medium</Button>
+        <Button size='small'>outline</Button>
+        <Button disabled>Disabled</Button>
       </section>
     </div>
   );
