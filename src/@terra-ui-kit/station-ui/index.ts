@@ -3,5 +3,6 @@
 
 export * from './buttons/Button';
 export * from './cards/Card';
+export * from './menus/MenuItem';
 export * from './navigations/PageHeader';
 export * from './theme/entities';
