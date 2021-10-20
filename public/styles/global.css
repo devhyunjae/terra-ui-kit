@@ -25,7 +25,11 @@
 body {
   background-color: var(--color-gray14);
   color: var(--color-white100);
-  
+
   font-size: var(--font-size);
   font-family: var(--font-family);
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
 }

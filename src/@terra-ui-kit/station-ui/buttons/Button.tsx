@@ -8,8 +8,8 @@ import styled, { css } from 'styled-components';
 import { Size, Variant } from '../theme/entities';
 
 export interface ButtonProps extends Omit<UnstyledButtonProps, 'ref'> {
-  variant: Variant;
-  size: Size;
+  variant?: Variant;
+  size?: Size;
   fullWidth?: boolean;
 }
 
