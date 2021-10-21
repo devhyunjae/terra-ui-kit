@@ -55,8 +55,7 @@ const _Input = styled(InputBase)`
     css`
       border: solid 1px var(--color-danger01) !important;
     `}
-  width: ${({ fullWidth = false }) =>
-    fullWidth ? 'calc(100% - 24px)' : 'auto'};
+  width: ${({ fullWidth = false }) => (fullWidth ? '100%' : 'auto')};
 `;
 
 export const Input = fixHMR(_Input);
