@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-type OptionType = string | number;
+export type OptionType = string | number;
 
 const SelectContext = createContext<{
   selectedOption: OptionType;
@@ -18,4 +18,4 @@ const useSelectContext = () => {
   return context;
 };
 
-export { useSelectContext, SelectContext, OptionType };
+export { useSelectContext, SelectContext };
