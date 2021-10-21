@@ -5,5 +5,5 @@ export * from './buttons/UnstyledButton';
 export * from './cards/UnstyledCard';
 export * from './inputs/UnstyledInput';
 export * from './inputs/UnstyledSelect';
-export * from './menus/UnstyledMenuItem';
-export * from './navigations/UnstyledPageHeader';
+export * from './menus/UnStyledMenuItem';
+export * from './navigations/UnStyledPageHeader';
