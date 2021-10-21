@@ -24,7 +24,7 @@
 /* common app styles */
 body {
   background-color: var(--color-gray14);
-  color: var(--color-white100);
+  color: var(--color-primary400);
 
   font-size: var(--font-size);
   font-family: var(--font-family);

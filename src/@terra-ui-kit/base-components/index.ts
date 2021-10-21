@@ -3,5 +3,6 @@
 
 export * from './buttons/UnstyledButton';
 export * from './cards/UnstyledCard';
-export * from './menus/UnStyledMenuItem';
-export * from './navigations/UnStyledPageHeader';
+export * from './inputs/UnstyledInput';
+export * from './menus/UnstyledMenuItem';
+export * from './navigations/UnstyledPageHeader';
