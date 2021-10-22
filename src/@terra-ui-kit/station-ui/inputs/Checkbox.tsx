@@ -5,11 +5,12 @@ interface Props {
   checked: boolean;
   onClick: () => void;
   label?: string;
+  className?: string;
 }
 
-const Checkbox = ({ checked, onClick, label }: Props) => {
+const Checkbox = ({ checked, onClick, label, className }: Props) => {
   return (
-    <Container onClick={onClick}>
+    <Container onClick={onClick} className={className}>
       <CheckboxContainer>{checked && <Checked />}</CheckboxContainer>
       {label && <Label>{label}</Label>}
     </Container>
