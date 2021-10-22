@@ -4,6 +4,7 @@
 export * from './buttons/Button';
 export * from './cards/Card';
 export * from './hooks/useOnClickOutside';
+export * from './inputs/Checkbox';
 export * from './inputs/Input';
 export * from './inputs/Select';
 export * from './inputs/selectContext';
