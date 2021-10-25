@@ -15,6 +15,14 @@ export const Basic = () => {
       <Card title="with title" titleBackground>
         body with title + background
       </Card>
+      <div style={{ margin: 20 }} />
+      <Card size="small">small card</Card>
+      <div style={{ margin: 20 }} />
+      <Card size="medium1">medium1 card</Card>
+      <div style={{ margin: 20 }} />
+      <Card size="medium2">medium2 card</Card>
+      <div style={{ margin: 20 }} />
+      <Card size="large">large card</Card>
     </>
   );
 };

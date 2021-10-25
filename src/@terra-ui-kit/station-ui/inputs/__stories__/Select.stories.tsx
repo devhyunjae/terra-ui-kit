@@ -12,7 +12,6 @@ export const Basic = () => {
     <>
       <Select
         onChange={(v) => {
-          console.log('v', v);
           setSelectedValue(v);
         }}
       >

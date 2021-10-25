@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 export interface CardProps extends Omit<UnstyledCardProps, 'title'> {
   title?: string | ReactNode | undefined;
   titleBackground?: boolean;
+  size?: 'small' | 'medium1' | 'medium2' | 'default' | 'large';
 }
 
 function CardBase({
@@ -22,12 +23,30 @@ function CardBase({
   );
 }
 
+const sizeStyles = {
+  small: css`
+    padding: 16px 20px;
+  `,
+  medium1: css`
+    padding: 20px;
+  `,
+  medium2: css`
+    padding: 20px 28px;
+  `,
+  default: css`
+    padding: 28px;
+  `,
+  large: css`
+    padding: 40px 28px;
+  `,
+};
+
 const _Card = styled(CardBase)`
   border-radius: 8px;
   border: solid 1px var(--color-desaturated300);
   background-color: var(--color-white);
   > section {
-    padding: 28px;
+    ${({ size = 'default' }) => sizeStyles[size]}
     border-bottom: 1px solid var(--color-desaturated300);
     ${({ titleBackground }) =>
       titleBackground
@@ -37,7 +56,7 @@ const _Card = styled(CardBase)`
         : null}
   }
   > div {
-    padding: 28px;
+    ${({ size = 'default' }) => sizeStyles[size]}
   }
 `;
 
