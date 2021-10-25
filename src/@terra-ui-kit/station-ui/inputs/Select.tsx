@@ -61,6 +61,7 @@ const ShowBox = styled('div')`
 `;
 
 const SelectDropdown = styled('ul')<{ showDropdown?: boolean }>`
+  z-index: var(--zindex-dropdown);
   margin: 0;
   position: absolute;
   margin-top: 2px;

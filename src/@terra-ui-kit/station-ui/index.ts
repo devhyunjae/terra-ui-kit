@@ -11,5 +11,7 @@ export * from './inputs/selectContext';
 export * from './inputs/SelectOption';
 export * from './menus/MenuItem';
 export * from './navigations/PageHeader';
+export * from './tabs/Tab';
 export * from './tags/Tag';
 export * from './theme/entities';
+export * from './tooltips/Tooltip';

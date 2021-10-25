@@ -23,6 +23,10 @@
   --color-red-l: 66%;
   --color-red: hsl(var(--color-red-h), var(--color-red-s), var(--color-red-l));
   --color-red-text: #ffffff;
+
+  /* shared z-index */
+  --zindex-tooltip: 2100;
+  --zindex-dropdown: 2110;
 }
 
 /* common app styles */
