@@ -17,13 +17,15 @@ function MenuItemBase(props: MenuItemProps) {
 const _MenuItem = styled(MenuItemBase)`
   cursor: pointer;
   padding: 10px;
+  opacity: 0.75;
   &:hover {
-    background-color: pink;
+    opacity: 1;
   }
   ${({ selected }) =>
     selected
       ? css`
-          font-weight: 700;
+          opacity: 1;
+          font-weight: 500;
         `
       : null}
 `;
