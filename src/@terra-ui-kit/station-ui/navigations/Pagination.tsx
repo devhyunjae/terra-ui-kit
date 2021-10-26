@@ -1,5 +1,5 @@
 import { DoubleArrow, ChevronLeft, ChevronRight } from '@mui/icons-material';
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 interface Props {
@@ -8,6 +8,99 @@ interface Props {
   onChange?: (current: number) => void;
   className?: string;
 }
+
+interface ButtonElements {
+  disabled: (currentPage: number, totalPages?: number) => boolean;
+  onClick: (
+    setCurrentPage: Function,
+    targetPage: number,
+    onChange?: (current: number) => void,
+    totalPages?: number,
+  ) => () => void;
+  icon: ReactNode;
+}
+
+const LeftDoubleArrow = styled(DoubleArrow)`
+  transform: rotate(180deg);
+`;
+
+const backButtons: ButtonElements[] = [
+  {
+    disabled: (currentPage: number) => currentPage < 2,
+    onClick:
+      (
+        setCurrentPage: Function,
+        targetPage: number,
+        onChange?: (current: number) => void,
+      ) =>
+      () => {
+        setCurrentPage(1);
+        if (onChange) {
+          onChange(1);
+        }
+      },
+    icon: <LeftDoubleArrow />,
+  },
+  {
+    disabled: (currentPage: number) => currentPage < 2,
+    onClick:
+      (
+        setCurrentPage: Function,
+        targetPage: number,
+        onChange?: (current: number) => void,
+      ) =>
+      () => {
+        if (targetPage > 1) {
+          setCurrentPage(targetPage - 1);
+          if (onChange) {
+            onChange(targetPage - 1);
+          }
+        }
+      },
+    icon: <ChevronLeft />,
+  },
+];
+
+const nextButtons: ButtonElements[] = [
+  {
+    disabled: (currentPage: number, totalPages: number = 1) =>
+      currentPage >= totalPages,
+    onClick:
+      (
+        setCurrentPage: Function,
+        targetPage: number,
+        onChange?: (current: number) => void,
+        totalPages: number = 1,
+      ) =>
+      () => {
+        if (targetPage < totalPages) {
+          setCurrentPage(targetPage + 1);
+          if (onChange) {
+            onChange(targetPage + 1);
+          }
+        }
+      },
+    icon: <ChevronRight />,
+  },
+  {
+    disabled: (currentPage: number, totalPages: number = 1) =>
+      currentPage >= totalPages,
+    onClick:
+      (
+        setCurrentPage: Function,
+        targetPage: number,
+        onChange?: (current: number) => void,
+        totalPages: number = 1,
+      ) =>
+      () => {
+        setCurrentPage(totalPages);
+        if (onChange) {
+          onChange(totalPages);
+        }
+      },
+    icon: <DoubleArrow />,
+  },
+];
 
 const Pagination = ({
   defaultCurrentPage,
@@ -20,62 +113,37 @@ const Pagination = ({
   );
   return (
     <Container className={className}>
-      <IconButton
-        disabled={currentPage < 2}
-        onClick={() => {
-          setCurrentPage(1);
-          if (onChange) {
-            onChange(1);
-          }
-        }}
-      >
-        <LeftDoubleArrow />
-      </IconButton>
-      <IconButton
-        disabled={currentPage < 2}
-        onClick={() => {
-          if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-            if (onChange) {
-              onChange(currentPage - 1);
-            }
-          }
-        }}
-      >
-        <ChevronLeft />
-      </IconButton>
+      {backButtons.map((backButton: ButtonElements, i: number) => {
+        return (
+          <IconButton
+            key={`back-button-${i}`}
+            disabled={backButton.disabled(currentPage)}
+            onClick={backButton.onClick(setCurrentPage, currentPage, onChange)}
+          >
+            {backButton.icon}
+          </IconButton>
+        );
+      })}
       <IndexBox>{`${currentPage} of ${totalPages}`}</IndexBox>
-      <IconButton
-        disabled={currentPage >= totalPages}
-        onClick={() => {
-          if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-            if (onChange) {
-              onChange(currentPage + 1);
-            }
-          }
-        }}
-      >
-        <ChevronRight />
-      </IconButton>
-      <IconButton
-        disabled={currentPage >= totalPages}
-        onClick={() => {
-          setCurrentPage(totalPages);
-          if (onChange) {
-            onChange(totalPages);
-          }
-        }}
-      >
-        <DoubleArrow />
-      </IconButton>
+      {nextButtons.map((nextButton: ButtonElements, i: number) => {
+        return (
+          <IconButton
+            key={`next-button-${i}`}
+            disabled={nextButton.disabled(currentPage, totalPages)}
+            onClick={nextButton.onClick(
+              setCurrentPage,
+              currentPage,
+              onChange,
+              totalPages,
+            )}
+          >
+            {nextButton.icon}
+          </IconButton>
+        );
+      })}
     </Container>
   );
 };
-
-const LeftDoubleArrow = styled(DoubleArrow)`
-  transform: rotate(180deg);
-`;
 
 const Container = styled('div')`
   display: inline-flex;
