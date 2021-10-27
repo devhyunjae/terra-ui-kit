@@ -9,6 +9,7 @@ interface Props {
   label?: string;
   className?: string;
   color?: ColorType;
+  disabled?: boolean;
 }
 
 interface ColorProps {
@@ -21,9 +22,14 @@ const Checkbox = ({
   label,
   className,
   color = 'default',
+  disabled = false,
 }: Props) => {
   return (
-    <Container onClick={onClick} className={className}>
+    <Container
+      onClick={() => !disabled && onClick()}
+      className={className}
+      disabled={disabled}
+    >
       <CheckboxContainer color={color}>
         {checked && <Checked color={color} />}
       </CheckboxContainer>
@@ -32,14 +38,19 @@ const Checkbox = ({
   );
 };
 
-const Container = styled('div')`
+const Container = styled('div')<{ disabled: boolean }>`
   display: flex;
   cursor: pointer;
   width: fit-content;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 0.5;
+      cursor: not-allowed;
+    `}
 `;
 
 const CheckboxContainer = styled('div')<ColorProps>`
-  cursor: pointer;
   flex-shrink: 0;
   display: flex;
   align-items: center;

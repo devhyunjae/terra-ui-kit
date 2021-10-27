@@ -20,6 +20,11 @@ const menus = [
     label: 'Curry',
     value: 'curry',
   },
+  {
+    label: 'Sold out menu',
+    value: 'soldout',
+    disabled: true,
+  },
 ];
 
 export const Basic = () => {
@@ -44,7 +49,7 @@ export const Basic = () => {
                 }}
               >
                 {menu.label}
-                <Radio value={menu.value} />
+                <Radio value={menu.value} disabled={menu.disabled} />
               </div>
             </Card>
           );
@@ -73,7 +78,11 @@ export const Basic = () => {
                 }}
               >
                 {menu.label}
-                <Radio value={menu.value} color="blue" />
+                <Radio
+                  value={menu.value}
+                  color="blue"
+                  disabled={menu.disabled}
+                />
               </div>
             </Card>
           );

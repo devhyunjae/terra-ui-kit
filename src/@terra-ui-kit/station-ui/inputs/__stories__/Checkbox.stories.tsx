@@ -29,6 +29,20 @@ export const Basic = () => {
           label="I have securely WRITTEN DOWN MY SEED. I understand that lost seeds cannot be recovered."
         />
       </div>
+      <div
+        style={{
+          marginTop: 20,
+          width: 330,
+        }}
+      >
+        Disabled checkbox
+        <Checkbox
+          checked={false}
+          onClick={() => {}}
+          disabled
+          label="Disable checkbox"
+        />
+      </div>
       <div style={{ margin: 20 }} />
       <div>blue checkbox with label</div>
       <Checkbox
