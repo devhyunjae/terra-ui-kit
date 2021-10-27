@@ -46,6 +46,8 @@ const _Card = styled(CardBase)`
   border: solid 1px var(--color-desaturated300);
   background-color: var(--color-white);
   > section {
+    display: flex;
+    align-items: center;
     ${({ size = 'default' }) => sizeStyles[size]}
     border-bottom: 1px solid var(--color-desaturated300);
     ${({ titleBackground }) =>
