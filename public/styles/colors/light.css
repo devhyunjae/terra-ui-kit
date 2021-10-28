@@ -10,7 +10,11 @@
   --color-desaturated200: #f3f5fd;
   --color-desaturated100: #f9faff;
   --color-success01: #1daa8e;
+  --color-bg-success01: rgba(29, 170, 142, 0.1);
+  --color-warning01: #fd9a02;
+  --color-bg-warning01: rgba(253, 154, 2, 0.1);
   --color-danger01: #ff5561;
+  --color-bg-danger01: rgba(255, 85, 97, 0.1);
   --color-gray100: #f3f3f3;
   --color-purple01: #7a6ff0;
   --color-white: #ffffff;
