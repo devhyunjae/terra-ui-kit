@@ -23,7 +23,7 @@ export const Basic = () => {
           );
         }}
       />
-      <div style={{ margin: 20 }}></div>
+      <div style={{ margin: 20 }} />
       <FileUpload onChange={() => {}} errorMessage="Something is wrong" />
     </>
   );
