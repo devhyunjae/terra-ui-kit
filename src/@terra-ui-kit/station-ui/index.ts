@@ -1,7 +1,7 @@
 // THIS FILE IS AUTO CREATED
 // @see ~/scripts/create-index.ts
 
-export * from './Alerts/Alert';
+export * from './alerts/Alert';
 export * from './buttons/Button';
 export * from './cards/Card';
 export * from './hooks/useOnClickOutside';
