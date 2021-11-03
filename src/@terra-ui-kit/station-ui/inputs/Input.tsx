@@ -4,7 +4,9 @@ import {
 } from '@terra-ui-kit/base-components';
 import { fixHMR } from 'fix-hmr';
 import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { InputLabel } from './InputLabel';
+import { baseInputStyle, errorInputStyle } from './styles';
 
 export interface InputProps extends UnstyledInputProps {
   fullWidth?: boolean;
@@ -27,44 +29,13 @@ function InputBase({ label, errorMessage, ...restProps }: InputProps) {
 const _Input = styled(InputBase)`
   font-size: 14px;
   outline: none;
-  border: solid 1px var(--color-desaturated400);
   padding: 12px;
-  border-radius: 8px;
-  color: var(--color-primary400);
-  caret-color: var(--color-primary100);
-  ::placeholder {
-    opacity: 0.5;
-  }
-  &:hover,
-  &:active,
-  &:focus,
-  &:focus-visible {
-    border: solid 1px var(--color-primary100);
-  }
-  &:read-only,
-  &:disabled {
-    background-color: var(--color-desaturated300);
-    border: solid 1px var(--color-desaturated400);
-    cursor: not-allowed;
-  }
-  &:disabled {
-    opacity: 0.5;
-  }
-  ${({ error = false }) =>
-    error &&
-    css`
-      border: solid 1px var(--color-danger01) !important;
-    `}
+  ${baseInputStyle}
+  ${({ error = false }) => error && errorInputStyle}
   width: ${({ fullWidth = false }) => (fullWidth ? '100%' : 'auto')};
 `;
 
 export const Input = fixHMR(_Input);
-
-const InputLabel = styled('div')`
-  display: flex;
-  margin-bottom: 5px;
-  justify-content: space-between;
-`;
 
 const InputErrorMessage = styled('p')`
   margin: 3px 0 0 0;
