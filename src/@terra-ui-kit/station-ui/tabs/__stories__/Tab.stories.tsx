@@ -30,6 +30,7 @@ const pages = [
 export const Basic = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [selectedTab2, setSelectedTab2] = useState(0);
+  const [selectedTab3, setSelectedTab3] = useState(0);
   return (
     <>
       <div
@@ -68,6 +69,24 @@ export const Basic = () => {
         ))}
       </div>
       <div>{pages[selectedTab2]}</div>
+      <div
+        style={{
+          marginTop: 20,
+          display: 'flex',
+        }}
+      >
+        {tabs.map((tab: any, i: number) => (
+          <Tab
+            variant="rectangle"
+            key={`rec-tab-${i.toString()}`}
+            onClick={() => setSelectedTab3(i)}
+            selected={selectedTab3 === i}
+          >
+            {tab.text}
+          </Tab>
+        ))}
+      </div>
+      <div>{pages[selectedTab3]}</div>
     </>
   );
 };
