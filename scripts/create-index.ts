@@ -32,7 +32,7 @@ function createIndex(packageRoot: string, addedExports: string[]) {
 }
 
 createIndex(
-  path.resolve(__dirname, '../src/@terra-ui-kit/base-components'),
+  path.resolve(__dirname, '../src/@devhyunjae2/base-components'),
   [],
 );
-createIndex(path.resolve(__dirname, '../src/@terra-ui-kit/station-ui'), []);
+createIndex(path.resolve(__dirname, '../src/@devhyunjae2/station-ui'), []);

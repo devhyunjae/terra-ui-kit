@@ -1,6 +1,5 @@
-import { Button } from '@terra-ui-kit/station-ui';
-import { importColor, useStyle } from '@terra-ui-kit/style-router';
-import { StyleProviders } from 'configurations/style';
+import { Button } from '@devhyunjae2/station-ui';
+import { useStyle, ThemeProvider } from '@devhyunjae2/style-router';
 import React from 'react';
 import { render } from 'react-dom';
 
@@ -47,11 +46,11 @@ function App() {
 
 // change <link href="/styles/colors/{color}.css" id="theme-color"/>
 // before app start
-importColor((color) => `/styles/colors/${color}.css`, 'dark', '#theme-color');
+// importColor((color) => `/styles/colors/${color}.css`, 'dark', '#theme-color');
 
 render(
-  <StyleProviders>
+  <ThemeProvider>
     <App />
-  </StyleProviders>,
+  </ThemeProvider>,
   document.querySelector('#app'),
 );

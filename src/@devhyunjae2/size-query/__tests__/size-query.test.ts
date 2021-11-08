@@ -1,4 +1,4 @@
-import { matchSizeQuery } from '../';
+import { matchSizeQuery } from '..';
 
 describe('size-query', () => {
   test('should match every queries', () => {

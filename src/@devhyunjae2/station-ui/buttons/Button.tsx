@@ -1,7 +1,7 @@
 import {
   UnstyledButton,
   UnstyledButtonProps,
-} from '@terra-ui-kit/base-components';
+} from '@devhyunjae2/base-components';
 import { fixHMR } from 'fix-hmr';
 import React from 'react';
 import styled, { css } from 'styled-components';
@@ -13,7 +13,7 @@ export interface ButtonProps extends Omit<UnstyledButtonProps, 'ref'> {
   fullWidth?: boolean;
 }
 
-function ButtonBase(buttonProps: ButtonProps) {
+function ButtonBase({ fullWidth, ...buttonProps }: ButtonProps) {
   return <UnstyledButton {...buttonProps} />;
 }
 

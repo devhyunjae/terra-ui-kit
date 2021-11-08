@@ -1,7 +1,7 @@
 import {
   UnstyledPageHeader,
   UnstyledPageHeaderProps,
-} from '@terra-ui-kit/base-components';
+} from '@devhyunjae2/base-components';
 import { fixHMR } from 'fix-hmr';
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';

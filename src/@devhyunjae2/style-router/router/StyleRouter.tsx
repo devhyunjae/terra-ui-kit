@@ -1,4 +1,4 @@
-import { matchSizeQuery } from '@terra-ui-kit/size-query';
+import { matchSizeQuery } from '@devhyunjae2/size-query';
 import React, {
   Consumer,
   Context,

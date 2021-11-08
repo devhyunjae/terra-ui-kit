@@ -3,7 +3,7 @@ import { StyleRouterContext, StyleRouterState } from './StyleRouter';
 
 export interface StaticStyleRouterProps {
   children: ReactNode;
-  color: string;
+  color: 'dark' | 'light';
   breakpoint: string;
 }
 

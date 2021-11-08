@@ -1,4 +1,4 @@
-import { UnstyledCard, UnstyledCardProps } from '@terra-ui-kit/base-components';
+import { UnstyledCard, UnstyledCardProps } from '@devhyunjae2/base-components';
 import { fixHMR } from 'fix-hmr';
 import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';

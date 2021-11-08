@@ -1,7 +1,7 @@
 import {
   UnstyledMenuItem,
   UnstyledMenuItemProps,
-} from '@terra-ui-kit/base-components';
+} from '@devhyunjae2/base-components';
 import { fixHMR } from 'fix-hmr';
 import React from 'react';
 import styled, { css } from 'styled-components';

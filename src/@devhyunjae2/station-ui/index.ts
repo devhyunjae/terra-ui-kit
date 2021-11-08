@@ -17,6 +17,7 @@ export * from './inputs/Select';
 export * from './inputs/selectContext';
 export * from './inputs/SelectOption';
 export * from './inputs/styles';
+export * from './layouts/Blank';
 export * from './layouts/Content';
 export * from './layouts/entities';
 export * from './layouts/Footer';

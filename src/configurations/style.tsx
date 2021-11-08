@@ -1,4 +1,4 @@
-import { Breakpoint, CssRoute, StyleRouter } from '@terra-ui-kit/style-router';
+import { Breakpoint, CssRoute, StyleRouter } from '@devhyunjae2/style-router';
 import React, { ReactNode } from 'react';
 
 const breakpoints: Breakpoint[] = [
