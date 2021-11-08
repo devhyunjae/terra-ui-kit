@@ -4,15 +4,8 @@ import {
   Breakpoint,
   CssRoute,
   StaticStyleRouter,
-} from '../src/@terra-ui-kit/style-router';
+} from '../src/@devhyunjae2/style-router';
 import { theme } from './theme';
-
-const breakpoints: Breakpoint[] = [
-  ['small', '<=530'],
-  ['medium', '>530 and <=830'],
-  ['large', '>830 and <=1440'],
-  ['xlarge', '>1440'],
-];
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
