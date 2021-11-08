@@ -1,9 +1,46 @@
-# Directories
+# Terra UI Kit
 
-- `public/styles`
-  - Color, Responsive size 등을 CSS Variables 로 이쪽에 선언합니다.
-- `src/@devhyunjae2/*`
-  - 하위의 각각의 디렉토리들이 Package 입니다.
-  - `npm run pack && npm run publish` 를 통해서 NPM 으로 배포할 수 있습니다.
-- `.package.json` 은 만들어질 Package 들의 `package.json` 파일들에 공통적으로 선언될 내용들 입니다.
-- `.packages.json` 은 Package 들의 리스트 입니다. (Glob Pattern 지원)
+## Quick Start
+
+```sh
+npm i --save @devhyunjae2/station-ui @devhyunjae2/style-router
+```
+
+```jsx
+import { Button } from '@devhyunjae2/station-ui';
+import { useStyle, ThemeProvider } from '@devhyunjae2/style-router';
+import React from 'react';
+import { render } from 'react-dom';
+
+function App() {
+  const { color, updateColor, breakpoint } = useStyle();
+
+  return (
+    <div>
+      <h1>terra-ui-kit</h1>
+      <section>
+        <ul>
+          <li>color: {color}</li>
+          <li>breakpoint: {breakpoint}</li>
+        </ul>
+
+        <footer>
+          <Button
+            onClick={() => updateColor(color === 'light' ? 'dark' : 'light')}
+          >
+            Change color
+          </Button>
+        </footer>
+      </section>
+    </div>
+  );
+}
+
+render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+  document.querySelector('#app'),
+);
+
+```
