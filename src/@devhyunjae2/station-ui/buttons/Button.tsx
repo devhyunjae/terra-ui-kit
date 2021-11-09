@@ -11,6 +11,7 @@ export interface ButtonProps extends Omit<UnstyledButtonProps, 'ref'> {
   variant?: Variant;
   size?: Size;
   fullWidth?: boolean;
+  className?: string;
 }
 
 function ButtonBase({ fullWidth, ...buttonProps }: ButtonProps) {
