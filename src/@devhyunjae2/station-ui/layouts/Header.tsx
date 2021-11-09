@@ -11,6 +11,7 @@ const Header: FC<HeaderProps> = (props) => {
 };
 
 const Container = styled('header')<HeaderProps>`
+  background-color: var(--color-white);
   height: 64px;
   flex: 0 0 auto;
   border-bottom: 2px solid var(--color-desaturated300);
