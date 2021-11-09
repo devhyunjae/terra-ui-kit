@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import breakpoints from '../theme/breakpoints';
 import { BasicProps } from './entities';
 
 const Sider: FC<BasicProps> = (props) => {
@@ -16,6 +17,9 @@ const Container = styled('aside')`
   flex-direction: column;
   background-color: var(--color-primary500);
   color: var(--color-white);
+  @media (max-width: ${breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 export { Sider };
