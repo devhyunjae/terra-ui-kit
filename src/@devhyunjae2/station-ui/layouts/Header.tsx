@@ -13,6 +13,7 @@ const Header: FC<HeaderProps> = (props) => {
 const Container = styled('header')<HeaderProps>`
   height: 64px;
   flex: 0 0 auto;
+  border-bottom: 2px solid var(--color-desaturated300);
   ${({ fixed = false }) =>
     fixed &&
     css`

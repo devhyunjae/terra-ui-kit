@@ -8,6 +8,12 @@ const Sider: FC<BasicProps> = (props) => {
 
 const Container = styled('aside')`
   width: 220px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-primary500);
   color: var(--color-white);
 `;
