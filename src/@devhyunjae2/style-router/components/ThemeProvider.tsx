@@ -9,14 +9,20 @@ const breakpoints: Breakpoint[] = [
   ['xlarge', '>1440'],
 ];
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
+export function ThemeProvider({
+  children,
+  resetCss,
+}: {
+  children: ReactNode;
+  resetCss?: boolean;
+}) {
   return (
     <StyleRouter
       defaultColor="dark"
       breakpoints={breakpoints}
       fallbackBreakpoint="large"
     >
-      <GlobalStyle />
+      <GlobalStyle resetCss={resetCss} />
       {children}
     </StyleRouter>
   );

@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import ResetCss from './ResetCss';
 
-const DarkStyle = createGlobalStyle`
+const DarkStyle = createGlobalStyle<{ resetCss?: boolean }>`
   * {
     --color-primary500: #dbdbdb;
     --color-primary400: #dbdbdb;
@@ -38,6 +39,7 @@ const DarkStyle = createGlobalStyle`
     --color-white100: #ffffff;
 
     --text-color: red;
+    ${({ resetCss }) => resetCss && ResetCss}
   }
 `;
 
