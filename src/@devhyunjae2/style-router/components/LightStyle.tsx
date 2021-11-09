@@ -1,7 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 import ResetCss from './ResetCss';
+import { fontStyle } from './styles';
 
 const LightStyle = createGlobalStyle<{ resetCss?: boolean }>`
+  ${fontStyle}
   * {
     --color-primary500: #0045a7;
     --color-primary400: #2043b5;

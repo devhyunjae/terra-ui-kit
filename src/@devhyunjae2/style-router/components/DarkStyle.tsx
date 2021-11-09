@@ -1,7 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 import ResetCss from './ResetCss';
+import { fontStyle } from './styles';
 
 const DarkStyle = createGlobalStyle<{ resetCss?: boolean }>`
+  ${fontStyle}
   * {
     --color-primary500: #dbdbdb;
     --color-primary400: #dbdbdb;

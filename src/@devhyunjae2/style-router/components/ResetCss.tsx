@@ -118,9 +118,7 @@ const ResetCss = css`
     background-color: var(--color-desaturated100);
     color: var(--color-primary400);
     font-size: 14px;
-    font-family: 'Gotham SSm A', 'Gotham SSm B', BlinkMacSystemFont, 'Segoe UI',
-      'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif;
+    font-family: 'Gotham';
     font-stretch: normal;
     font-style: normal;
     line-height: 1.5;
