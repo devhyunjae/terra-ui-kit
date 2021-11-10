@@ -1,81 +1,86 @@
-import { fixHMR } from 'fix-hmr';
-import React, { FC, ReactNode, useRef, useState } from 'react';
+import React, { DetailedHTMLProps, SelectHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-import useOnClickOutside from '../hooks/useOnClickOutside';
-import { OptionType, SelectContext } from './selectContext';
+type Size = 'large' | 'medium' | 'small';
 
-interface Props {
-  children: ReactNode;
-  onChange: (selectedValue: OptionType) => void;
-  defaultValue?: OptionType;
+interface Props
+  extends DetailedHTMLProps<
+    SelectHTMLAttributes<HTMLSelectElement>,
+    HTMLSelectElement
+  > {}
+interface _Props extends Omit<Props, 'size'> {}
+
+interface SelectProps extends Omit<_Props, 'ref'> {
+  size?: Size;
+  className?: string;
 }
 
-const _Select: FC<Props> = ({ children, defaultValue, onChange }) => {
-  const [selectedOption, setSelectedOption] = useState<OptionType>(
-    defaultValue || '',
-  );
-  const [showDropdown, setShowDropdown] = useState(false);
-  const selectContainerRef = useRef(null);
-
-  useOnClickOutside(selectContainerRef, () => setShowDropdown(false));
-
+const Select = ({ size, ...props }: SelectProps): React.ReactElement => {
   return (
-    <SelectContext.Provider
-      value={{
-        selectedOption,
-        changeSelectedOption: (selectedValue: OptionType) => {
-          setSelectedOption(selectedValue);
-          setShowDropdown(false);
-          onChange(selectedValue);
-        },
-      }}
-    >
-      <Container ref={selectContainerRef}>
-        <ShowBox onClick={() => setShowDropdown(!showDropdown)}>
-          <div>{selectedOption}</div>
-          <ArrowDropDownIcon />
-        </ShowBox>
-        <SelectDropdown showDropdown={showDropdown}>{children}</SelectDropdown>
-      </Container>
-    </SelectContext.Provider>
+    <Container>
+      <div>
+        <StyledSelect selectSize={size} {...props} />
+        <ArrowDropDownIcon />
+      </div>
+    </Container>
   );
 };
 
 const Container = styled('div')`
+  > div {
+    position: relative;
+    display: inline;
+    > svg {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      right: 9px;
+      font-size: 18px;
+    }
+  }
+`;
+
+const selectStyles = {
+  large: css`
+    width: 280px;
+    padding: 12px 30px 12px 12px;
+    font-size: 14px;
+  `,
+  medium: css`
+    width: 84px;
+    padding: 6px 30px 6px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+  `,
+  small: css`
+    width: 71px;
+    padding: 4px 30px 4px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+  `,
+};
+
+const StyledSelect = styled('select')<{ selectSize?: Size }>`
   width: 280px;
-  position: relative;
-`;
-
-const ShowBox = styled('div')`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  min-height: 45px;
+  appearance: none;
+  background: transparent;
+  outline: 0;
   cursor: pointer;
-  padding: 12px 15px 12px 12px;
+  padding: 12px 30px 12px 12px;
+  outline: 0;
   border-radius: 8px;
-  border: solid 1px var(--color-primary100);
-`;
-
-const SelectDropdown = styled('ul')<{ showDropdown?: boolean }>`
-  z-index: var(--zindex-dropdown);
-  margin: 0;
-  position: absolute;
-  margin-top: 2px;
-  width: 100%;
-  padding: 6px 1px 14px;
-  border-radius: 4px;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
   border: solid 1px var(--color-desaturated400);
-  background-color: var(--color-white);
-  ${({ showDropdown }) =>
-    !showDropdown &&
-    css`
-      display: none;
-    `}
+  color: var(--color-primary400);
+  line-height: 1.5;
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible {
+    border: solid 1px var(--color-primary100);
+  }
+  ${({ selectSize = 'large' }) => selectStyles[selectSize]}
 `;
 
-export const Select = fixHMR(_Select);
+export { Select };

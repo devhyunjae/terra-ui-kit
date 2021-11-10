@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
 import { Select } from '../Select';
-import { SelectOption } from '../SelectOption';
 
 export default {
   title: 'station-ui/Select',
 };
 
 export const Basic = () => {
-  const [selectedValue, setSelectedValue] = useState<string | number>('');
+  const [selectedValue, setSelectedValue] = useState<string>('');
   return (
     <>
       <Select
+        value={selectedValue}
         onChange={(v) => {
-          setSelectedValue(v);
+          setSelectedValue(v.target.value);
         }}
       >
-        <SelectOption value={1}>1</SelectOption>
-        <SelectOption value={2}>2</SelectOption>
-        <SelectOption value={3}>3</SelectOption>
+        <option value="1">111111111</option>
+        <option value="2">2111111111111111111</option>
+        <option value="3">3111111111111111111111111111</option>
       </Select>
       {`Selected value: ${selectedValue}`}
+      <Select size="medium">
+        <option value="1">111111111</option>
+        <option value="2">2111111111111111111</option>
+        <option value="3">3111111111111111111111111111</option>
+      </Select>
+      <Select size="small">
+        <option value="1">111111111</option>
+        <option value="2">2111111111111111111</option>
+        <option value="3">3111111111111111111111111111</option>
+      </Select>
     </>
   );
 };

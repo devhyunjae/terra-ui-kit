@@ -14,8 +14,6 @@ export * from './inputs/Radio';
 export * from './inputs/radioContext';
 export * from './inputs/RadioGroup';
 export * from './inputs/Select';
-export * from './inputs/selectContext';
-export * from './inputs/SelectOption';
 export * from './inputs/styles';
 export * from './layouts/Blank';
 export * from './layouts/Content';
