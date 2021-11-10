@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Input } from '../Input';
+import { Select } from '../Select';
 
 export default {
   title: 'station-ui/Input',
@@ -9,6 +10,14 @@ export const Basic = () => {
   const [inputValue, setInputValue] = useState('');
   const onChange = (e: ChangeEvent<HTMLInputElement>) =>
     setInputValue(e.target.value);
+
+  const SelectComp = (
+    <Select size="addon" onChange={() => {}}>
+      <option value="1">111111111</option>
+      <option value="2">2111111111111111111</option>
+      <option value="3">3111111111111111111111111111</option>
+    </Select>
+  );
   return (
     <div
       style={{
@@ -17,6 +26,12 @@ export const Basic = () => {
         gap: 20,
       }}
     >
+      <Input
+        addonBefore={SelectComp}
+        value={inputValue}
+        onChange={onChange}
+        placeholder="with placeholder"
+      />
       <Input
         value={inputValue}
         onChange={onChange}
@@ -72,6 +87,14 @@ export const Basic = () => {
           </>
         }
         errorMessage={'With error message'}
+      />
+      <Input
+        fullWidth
+        addonBefore={'LUNA'}
+        addonAfter="UST"
+        value={inputValue}
+        onChange={onChange}
+        placeholder="with placeholder"
       />
     </div>
   );

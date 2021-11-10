@@ -1,13 +1,6 @@
 import { css } from 'styled-components';
 
-const baseInputStyle = css`
-  border-radius: 8px;
-  border: solid 1px var(--color-desaturated400);
-  color: var(--color-primary400);
-  caret-color: var(--color-primary100);
-  ::placeholder {
-    opacity: 0.5;
-  }
+const inputEffectStyle = css`
   &:hover,
   &:active,
   &:focus,
@@ -25,8 +18,19 @@ const baseInputStyle = css`
   }
 `;
 
+const baseInputStyle = css`
+  border-radius: 8px;
+  border: solid 1px var(--color-desaturated400);
+  color: var(--color-primary400);
+  caret-color: var(--color-primary100);
+  ::placeholder {
+    opacity: 0.5;
+  }
+  ${inputEffectStyle}
+`;
+
 const errorInputStyle = css`
   border: solid 1px var(--color-danger01) !important;
 `;
 
-export { baseInputStyle, errorInputStyle };
+export { baseInputStyle, errorInputStyle, inputEffectStyle };

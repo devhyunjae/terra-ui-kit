@@ -2,7 +2,7 @@ import React, { DetailedHTMLProps, SelectHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-type Size = 'large' | 'medium' | 'small';
+type Size = 'large' | 'medium' | 'small' | 'addon';
 
 interface Props
   extends DetailedHTMLProps<
@@ -59,6 +59,16 @@ const selectStyles = {
     padding: 4px 30px 4px 6px;
     font-size: 12px;
     border-radius: 4px;
+  `,
+  addon: css`
+    width: 80px;
+    border: 0;
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-visible {
+      border: none;
+    }
   `,
 };
 
