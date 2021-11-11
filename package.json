@@ -10,6 +10,7 @@
     "build": "tsc --noEmit && vite build",
     "pack": "rocket-punch build",
     "publish": "rocket-punch publish",
+    "all-in-one": "npm run build && npm run pack && npm run publish",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "test": "react-scripts test --colors",
