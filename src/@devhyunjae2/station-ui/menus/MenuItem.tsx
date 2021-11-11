@@ -18,6 +18,7 @@ const _MenuItem = styled(MenuItemBase)`
   cursor: pointer;
   padding: 10px;
   opacity: 0.75;
+  color: var(--color-gray100);
   &:hover {
     opacity: 1;
   }

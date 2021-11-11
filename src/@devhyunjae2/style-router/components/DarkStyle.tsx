@@ -5,7 +5,7 @@ import { fontStyle } from './styles';
 const DarkStyle = createGlobalStyle<{ resetCss?: boolean }>`
   ${fontStyle}
   * {
-    --color-primary500: #dbdbdb;
+    --color-primary500: #212121;
     --color-primary400: #dbdbdb;
     --color-primary300: #459cf4;
     --color-primary200: #3082f4;
