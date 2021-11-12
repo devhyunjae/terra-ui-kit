@@ -84,6 +84,7 @@ const StyledSelect = styled('select')<{ selectSize?: Size }>`
   border: solid 1px var(--color-desaturated400);
   color: var(--color-primary400);
   line-height: 1.5;
+  font-family: inherit;
   &:hover,
   &:active,
   &:focus,

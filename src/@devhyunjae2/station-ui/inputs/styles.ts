@@ -19,6 +19,8 @@ const inputEffectStyle = css`
 `;
 
 const baseInputStyle = css`
+  line-height: 1.5;
+  font-family: inherit;
   border-radius: 8px;
   border: solid 1px var(--color-desaturated400);
   color: var(--color-primary400);

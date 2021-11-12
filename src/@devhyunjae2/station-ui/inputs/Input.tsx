@@ -55,11 +55,6 @@ const AddonContainer = styled('div')`
   height: 100%;
   justify-content: center;
   padding: 0px 8px;
-  /* > div {
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-  } */
 `;
 
 const LeftAddon = styled(AddonContainer)`
