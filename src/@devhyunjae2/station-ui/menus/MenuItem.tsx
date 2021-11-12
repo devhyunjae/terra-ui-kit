@@ -15,6 +15,9 @@ function MenuItemBase(props: MenuItemProps) {
 }
 
 const _MenuItem = styled(MenuItemBase)`
+  display: flex;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
   padding: 10px;
   opacity: 0.75;

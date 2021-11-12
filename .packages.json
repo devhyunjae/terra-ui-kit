@@ -1,7 +1,7 @@
 {
   "$schema": "https://rocket-hangar.github.io/rocket-punch/schemas/packages.json",
   "@devhyunjae2/*": {
-    "version": "0.1.7",
+    "version": "0.1.8",
     "tag": "latest"
   }
 }
