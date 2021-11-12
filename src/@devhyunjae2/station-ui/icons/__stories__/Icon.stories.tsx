@@ -36,7 +36,7 @@ export const Basic = () => {
         https://mui.com/components/material-icons/
       </a>
       <h2>Example</h2>
-      <h4>Tips: convert the icon name to camel_case</h4>
+      <h4>Tips: convert the icon name to snake_case</h4>
       <Icon>add_a_photo</Icon>
       <Icon>all_inclusive</Icon>
       <Icon>add_circle</Icon>
