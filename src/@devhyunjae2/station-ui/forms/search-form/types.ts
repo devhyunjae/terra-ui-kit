@@ -1,10 +1,7 @@
 export interface Asset {
-  icon: string;
-  value: string;
   symbol: string;
-}
-
-export interface DetailAsset extends Asset {
+  value: string;
+  icon: string;
   balance: string;
   group: string;
 }

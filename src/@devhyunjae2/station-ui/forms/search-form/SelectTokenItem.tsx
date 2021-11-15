@@ -1,10 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
-import { DetailAsset } from './types';
+import styled, { css } from 'styled-components';
+import { useSearchFormContext } from './context';
+import { Asset } from './types';
 
-const SelectTokenItem = ({ value, symbol, icon, balance }: DetailAsset) => {
+const SelectTokenItem = ({ value, symbol, icon, balance, group }: Asset) => {
+  const { selectedAsset, onChangeSelectedAsset, setOpenAddon } =
+    useSearchFormContext();
   return (
-    <Container>
+    <Container
+      selected={selectedAsset.value === value}
+      onClick={() => {
+        onChangeSelectedAsset({
+          value,
+          symbol,
+          icon,
+          balance,
+          group,
+        });
+        setOpenAddon(false);
+      }}
+    >
       <span>
         <img src={icon} alt="" />
         <AssetInfo>
@@ -17,11 +32,15 @@ const SelectTokenItem = ({ value, symbol, icon, balance }: DetailAsset) => {
   );
 };
 
-const Container = styled('div')`
+const Container = styled('div')<{ selected: boolean }>`
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--color-desaturated200);
+  }
   > span {
     display: flex;
     gap: 10px;
@@ -34,6 +53,11 @@ const Container = styled('div')`
   > div {
     font-size: 12px;
   }
+  ${({ selected }) =>
+    selected &&
+    css`
+      background-color: var(--color-desaturated200);
+    `}
 `;
 
 const AssetInfo = styled('div')`

@@ -2,14 +2,25 @@ import { createContext, useContext } from 'react';
 import { Asset } from './types';
 
 interface Context {
-  selectedAsset?: Asset;
-  setSelectedAsset?: React.Dispatch<React.SetStateAction<Asset>>;
+  selectedAsset: Asset;
+  onChangeSelectedAsset: (asset: Asset) => void;
+  openAddon: boolean;
+  setOpenAddon: Function;
 }
 
-const SearchFormContext = createContext<Context>({});
+// @ts-ignore
+const SearchFormContext = createContext<Context>();
 
 const useSearchFormContext = () => {
-  return useContext(SearchFormContext);
+  const { selectedAsset, onChangeSelectedAsset, openAddon, setOpenAddon } =
+    useContext(SearchFormContext);
+
+  return {
+    selectedAsset,
+    onChangeSelectedAsset,
+    openAddon,
+    setOpenAddon,
+  };
 };
 
 export { SearchFormContext, useSearchFormContext };

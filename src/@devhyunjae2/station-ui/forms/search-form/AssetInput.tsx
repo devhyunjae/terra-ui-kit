@@ -6,6 +6,7 @@ import React, {
   useState,
 } from 'react';
 import styled, { css } from 'styled-components';
+import groupBy from 'lodash/groupBy';
 
 import { useSearchFormContext } from './context';
 import { SearchInput } from './SearchInput';
@@ -17,24 +18,32 @@ interface Props {
 }
 
 const AssetInput = ({ value, onChange, addon }: Props) => {
-  const [openAddon, setOpenAddon] = useState(false);
-  const { selectedAsset } = useSearchFormContext();
+  const { selectedAsset, openAddon, setOpenAddon } = useSearchFormContext();
   const [searchValue, setSearchValue] = useState('');
+
   const filteredAssetList = (
     Children.toArray(addon.props.children) as ReactElement[]
   ).filter((child: ReactElement) => {
     if (child.props) {
       const { symbol, value: childValue } = child.props;
-      return symbol.includes(searchValue) || childValue.includes(searchValue);
+      const lowerCasedSearchValue = searchValue.toLowerCase();
+      return (
+        symbol.toLowerCase().includes(lowerCasedSearchValue) ||
+        childValue.toLowerCase().includes(lowerCasedSearchValue)
+      );
     }
     return false;
+  });
+
+  const groupedAssetList = groupBy(filteredAssetList, (child: ReactElement) => {
+    return child.props.group;
   });
 
   return (
     <>
       <Container>
         <AssetInfo onClick={() => setOpenAddon(!openAddon)}>
-          <img src={selectedAsset?.icon} alt="selected-icon" />
+          <img src={selectedAsset?.icon} alt="" />
           <span>{selectedAsset?.symbol}</span>
           <ArrowDropDown />
         </AssetInfo>
@@ -50,7 +59,16 @@ const AssetInput = ({ value, onChange, addon }: Props) => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
-        {filteredAssetList}
+        <AssetListContainer>
+          {Object.keys(groupedAssetList).map((groupName: string) => {
+            return (
+              <>
+                <GroupNameSection>{groupName}</GroupNameSection>
+                {groupedAssetList[groupName]}
+              </>
+            );
+          })}
+        </AssetListContainer>
       </AddonContainer>
     </>
   );
@@ -114,6 +132,18 @@ const AddonContainer = styled('div')<{ openAddon: boolean }>`
     css`
       display: block;
     `}
+`;
+
+const GroupNameSection = styled('section')`
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-bottom: 1px solid var(--color-desaturated200);
+`;
+
+const AssetListContainer = styled('div')`
+  height: 250px;
+  overflow-y: scroll;
 `;
 
 export { AssetInput };

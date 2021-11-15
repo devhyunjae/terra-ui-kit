@@ -8,17 +8,34 @@ import { Asset } from './types';
 interface Props extends BaseProps {
   label: string;
   extra?: ReactNode;
+  defaultSelectedAsset: Asset;
+  onChangeSelectedAsset: (asset: Asset) => void;
 }
 
-const SearchForm = ({ label, extra, children, ...restProps }: Props) => {
-  const [selectedAsset, setSelectedAsset] = useState<Asset>({
-    symbol: 'UST',
-    value: 'Terra USD',
-    icon: 'https://whitelist.mirror.finance/images/UST.png',
-  });
+const SearchForm = ({
+  label,
+  extra,
+  children,
+  defaultSelectedAsset,
+  onChangeSelectedAsset,
+  ...restProps
+}: Props) => {
+  const [selectedAsset, setSelectedAsset] =
+    useState<Asset>(defaultSelectedAsset);
+  const [openAddon, setOpenAddon] = useState(false);
 
   return (
-    <SearchFormContext.Provider value={{ selectedAsset, setSelectedAsset }}>
+    <SearchFormContext.Provider
+      value={{
+        selectedAsset,
+        onChangeSelectedAsset: (asset: Asset) => {
+          setSelectedAsset(asset);
+          onChangeSelectedAsset(asset);
+        },
+        openAddon,
+        setOpenAddon,
+      }}
+    >
       <Container {...restProps}>
         <FormHeader label={label} extra={extra} />
         {children}
