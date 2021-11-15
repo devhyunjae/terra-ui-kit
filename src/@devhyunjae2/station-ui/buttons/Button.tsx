@@ -31,10 +31,6 @@ const variantStyles = {
     background-color: transparent;
     color: var(--color-primary400);
     border: 1px solid var(--color-primary400);
-    &:hover {
-      filter: none;
-      font-weight: 700;
-    }
   `,
   default: css`
     background-color: var(--color-desaturated300);
