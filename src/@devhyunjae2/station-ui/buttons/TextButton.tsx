@@ -13,12 +13,13 @@ interface TextButtonProps extends BaseProps {
 const TextButton: FC<TextButtonProps> = ({
   leftIcon,
   rightIcon,
+  children,
   ...restProps
 }: TextButtonProps) => {
   return (
     <Container {...restProps}>
       {leftIcon}
-      TextButton
+      {children}
       {rightIcon}
     </Container>
   );
