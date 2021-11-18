@@ -8,7 +8,6 @@ export * from './cards/Card';
 export * from './collapses/Collapse';
 export * from './grids/Row';
 export * from './hooks/useOnClickOutside';
-export * from './icons/Icon';
 export * from './inputs/Checkbox';
 export * from './inputs/CodeEditor';
 export * from './inputs/FileUpload';

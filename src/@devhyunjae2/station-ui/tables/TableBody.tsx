@@ -12,9 +12,15 @@ const TableBody = ({ dataSource, columns }: Props) => {
     <>
       {dataSource.map((data: DataSource, i: number) => {
         return (
-          <BodyRow key={data.key}>
-            {columns.map((column: Column) => {
-              return <BodyCell>{data[column.dataIndex]}</BodyCell>;
+          <BodyRow key={data.key ?? i}>
+            {columns.map((column: Column, ii: number) => {
+              return (
+                <BodyCell key={column.key ?? ii}>
+                  {column.render
+                    ? column.render(data[column.dataIndex])
+                    : data[column.dataIndex]}
+                </BodyCell>
+              );
             })}
           </BodyRow>
         );

@@ -144,6 +144,14 @@ const ResetCss = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  a:-webkit-any-link {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 export default ResetCss;

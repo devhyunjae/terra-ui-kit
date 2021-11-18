@@ -4,4 +4,5 @@ export interface Asset {
   icon: string;
   balance: string;
   group: string;
+  name?: string;
 }

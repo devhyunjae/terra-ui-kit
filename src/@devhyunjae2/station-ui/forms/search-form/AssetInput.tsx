@@ -60,12 +60,12 @@ const AssetInput = ({ value, onChange, addon }: Props) => {
           setSearchValue={setSearchValue}
         />
         <AssetListContainer>
-          {Object.keys(groupedAssetList).map((groupName: string) => {
+          {Object.keys(groupedAssetList).map((groupName: string, i: number) => {
             return (
-              <>
+              <React.Fragment key={i}>
                 <GroupNameSection>{groupName}</GroupNameSection>
                 {groupedAssetList[groupName]}
-              </>
+              </React.Fragment>
             );
           })}
         </AssetListContainer>
