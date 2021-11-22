@@ -6,13 +6,18 @@ export default {
 };
 
 export const Basic = () => {
+  const LinkButtonString = `
+    <Button as={Link} to='/about'>
+      GO TO ABOUT
+    </Button>
+  `;
   return (
     <>
       <div
         style={{
           display: 'flex',
           gap: 20,
-          marginBottom: 20,
+          margin: 20,
         }}
       >
         <Button>default</Button>
@@ -26,6 +31,18 @@ export const Basic = () => {
       <Button size="medium">medium</Button>
       <Button size="small">outline</Button>
       <Button disabled>Disabled</Button>
+      <div>
+        <Button
+          as="a"
+          href="https://google.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          When you need a tag button
+        </Button>
+        <h4>Example for React Router Link</h4>
+        {LinkButtonString}
+      </div>
     </>
   );
 };

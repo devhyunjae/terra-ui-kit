@@ -1,21 +1,11 @@
-import {
-  UnstyledButton,
-  UnstyledButtonProps,
-} from '@devhyunjae2/base-components';
-import { fixHMR } from 'fix-hmr';
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { Size, Variant } from '../theme/entities';
 
-export interface ButtonProps extends Omit<UnstyledButtonProps, 'ref'> {
+export interface ButtonProps {
   variant?: Variant;
   size?: Size;
   fullWidth?: boolean;
   className?: string;
-}
-
-function ButtonBase({ fullWidth, ...buttonProps }: ButtonProps) {
-  return <UnstyledButton {...buttonProps} />;
 }
 
 const variantStyles = {
@@ -53,7 +43,7 @@ const sizeStyles = {
   default: css``,
 };
 
-const _Button = styled(ButtonBase)`
+const Button = styled.button<ButtonProps>`
   border: 0;
   outline: 0;
   font-family: inherit;
@@ -67,7 +57,7 @@ const _Button = styled(ButtonBase)`
   min-width: 150px;
   padding: 13px 20px;
   border-radius: 24px;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   &:hover {
@@ -88,4 +78,4 @@ const _Button = styled(ButtonBase)`
       : null};
 `;
 
-export const Button = fixHMR(_Button);
+export { Button };
