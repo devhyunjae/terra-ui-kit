@@ -10,10 +10,24 @@ export const Basic = () => {
   return (
     <>
       <TextButton>text button</TextButton>
-      <TextButton hoverEffect>text button</TextButton>
+      <TextButton hoverEffect>text with hovereffect</TextButton>
       <TextButton color="primary100">text button</TextButton>
-      <TextButton leftIcon={<AccessTime />}>left icon button</TextButton>
-      <TextButton rightIcon={<AccessTime />}>right icon button</TextButton>
+      <TextButton>
+        <AccessTime />
+        <span>left icon button</span>
+      </TextButton>
+      <TextButton>
+        <span>right icon button</span>
+        <AccessTime />
+      </TextButton>
+      <TextButton
+        as="a"
+        href="https://google.com"
+        target="_blank"
+        rel="noreferrer"
+      >
+        When you need a tag button
+      </TextButton>
     </>
   );
 };

@@ -47,6 +47,5 @@ a:visited,
 a:hover,
 a:active,
 a:-webkit-any-link {
-  color: inherit;
   text-decoration: none;
 }

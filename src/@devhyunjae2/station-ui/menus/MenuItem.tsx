@@ -1,20 +1,10 @@
-import {
-  UnstyledMenuItem,
-  UnstyledMenuItemProps,
-} from '@devhyunjae2/base-components';
-import { fixHMR } from 'fix-hmr';
-import React from 'react';
 import styled, { css } from 'styled-components';
 
-export interface MenuItemProps extends UnstyledMenuItemProps {
+export interface MenuItemProps {
   selected?: boolean;
 }
 
-function MenuItemBase(props: MenuItemProps) {
-  return <UnstyledMenuItem {...props} />;
-}
-
-const _MenuItem = styled(MenuItemBase)`
+const MenuItem = styled.div<MenuItemProps>`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -34,4 +24,4 @@ const _MenuItem = styled(MenuItemBase)`
       : null}
 `;
 
-export const MenuItem = fixHMR(_MenuItem);
+export { MenuItem };

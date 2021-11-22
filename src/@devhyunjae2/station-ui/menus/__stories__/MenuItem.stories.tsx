@@ -36,6 +36,10 @@ export const Basic = () => {
             key={`menu-${i.toString()}`}
             selected={selected === i}
             onClick={() => setSelected(i)}
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            rel="noreferrer"
           >
             {menu.text}
           </MenuItem>

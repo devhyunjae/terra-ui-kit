@@ -1,4 +1,3 @@
-import React, { FC, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { BaseProps } from '../types/BaseProps';
 
@@ -6,26 +5,9 @@ interface TextButtonProps extends BaseProps {
   onClick?: () => void;
   color?: 'primary100' | 'primary300';
   hoverEffect?: boolean;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
 }
 
-const TextButton: FC<TextButtonProps> = ({
-  leftIcon,
-  rightIcon,
-  children,
-  ...restProps
-}: TextButtonProps) => {
-  return (
-    <Container {...restProps}>
-      {leftIcon}
-      {children}
-      {rightIcon}
-    </Container>
-  );
-};
-
-const Container = styled('p')<TextButtonProps>`
+const TextButton = styled('span')<TextButtonProps>`
   display: flex;
   align-items: center;
   gap: 2px;
